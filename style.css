@@ -1,0 +1,191 @@
+/* Nokia Snake Game Styling */
+:root {
+    --nokia-green: #0f0;
+    --nokia-black: #000;
+    --nokia-dark-green: #008000;
+    --nokia-text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--nokia-black);
+    color: var(--nokia-green);
+    font-family: 'Courier New', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    touch-action: none;
+    overscroll-behavior: contain;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.game-container {
+    background-color: var(--nokia-black);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 100%;
+}
+
+.game-title {
+    color: var(--nokia-green);
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: var(--nokia-text-shadow);
+    animation: pixel-flicker 2s infinite alternate;
+}
+
+.game-wrapper {
+    background-color: var(--nokia-black);
+    border: 3px solid var(--nokia-green);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+#gameCanvas {
+    background-color: var(--nokia-black);
+    border: 2px solid var(--nokia-green);
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    box-shadow: var(--nokia-text-shadow);
+}
+
+.score-panel {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: var(--nokia-green);
+    font-size: 1.2em;
+    text-shadow: var(--nokia-text-shadow);
+}
+
+.game-controls .btn {
+    background-color: var(--nokia-green);
+    color: var(--nokia-black);
+    border: none;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.game-controls .btn:hover {
+    background-color: var(--nokia-dark-green);
+    transform: scale(1.05);
+    box-shadow: var(--nokia-text-shadow);
+}
+
+.game-controls .btn:disabled {
+    background-color: #444;
+    color: #888;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.game-instructions {
+    color: var(--nokia-green);
+    background-color: rgba(0, 255, 0, 0.1);
+    border: 1px solid var(--nokia-green);
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 255, 0, 0.3);
+}   
+
+.game-instructions h4 {
+    color: var(--nokia-green);
+    border-bottom: 1px solid var(--nokia-green);
+    padding-bottom: 5px;
+    text-shadow: var(--nokia-text-shadow);
+}
+
+/* Modal Styling */
+.modal-content {
+    background-color: var(--nokia-black);
+    border: 2px solid var(--nokia-green);
+}
+
+.modal-header, .modal-footer {
+    border-color: var(--nokia-green);
+}
+
+.modal-title {
+    color: var(--nokia-green);
+    text-shadow: var(--nokia-text-shadow);
+}
+
+.modal-body .table {
+    color: var(--nokia-green);
+}
+
+.modal-body .table th {
+    color: var(--nokia-green);
+    border-color: var(--nokia-green);
+}
+
+.modal-body .table td {
+    color: var(--nokia-green);
+    border-color: var(--nokia-green);
+}
+
+.btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Pixel Flicker Animation */
+@keyframes pixel-flicker {
+    0%, 100% { 
+        opacity: 1; 
+        text-shadow: var(--nokia-text-shadow);
+    }
+    50% { 
+        opacity: 0.8; 
+        text-shadow: 0 0 3px rgba(0, 255, 0, 0.5);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .game-container {
+        padding: 10px;
+    }
+
+    .game-title {
+        font-size: 1.8rem;
+    }
+
+    .score-panel {
+        font-size: 1rem;
+    }
+
+    .game-controls .btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Prevent unwanted interactions */
+canvas, button {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: none;
+}
